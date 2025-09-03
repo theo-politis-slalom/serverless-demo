@@ -4,24 +4,29 @@ variable "aws_region" {
   default     = "ap-southeast-2"
 }
 
+// Used for namespacing resources can be injected the ENVIRONMENT variable in CI/CD pipelines
+// This will also create APIGW stages with the same name (can be removed if not needed)
 variable "environment" {
   description = "Deployment environment (e.g., dev, staging, prod)"
   type        = string
   default     = "dev"
 }
 
+// Essentially the name of the stack being deployed
 variable "project_name" {
   description = "Name of the project"
   type        = string
-  default     = "serverless-demo-v5"
+  default     = "serverless-demo-v7"
 }
 
+// TODO This is probably fine for now but might consider this to work for individual lambda functions instead of globally
 variable "lambda_memory_size" {
   description = "Memory size for Lambda function in MB"
   type        = number
   default     = 128
 }
 
+// TODO This is probably fine for now but might consider this to work for individual lambda functions instead of globally
 variable "lambda_timeout" {
   description = "Timeout for Lambda function in seconds"
   type        = number
@@ -35,29 +40,30 @@ variable "demo_secret_name" {
 }
 
 # Tagging variables
+// Slalom specific for Innovation labs - can be changed to suit your needs
 variable "name" {
-  type        = string
-  default     = "Theo Politis"
+  type    = string
+  default = "Theo Politis"
 }
 
 variable "manager" {
-  type        = string
-  default     = "Andy Challis"
+  type    = string
+  default = "Andy Challis"
 }
 
 variable "market" {
-  type        = string
-  default     = "Build"
+  type    = string
+  default = "Build"
 }
 
 variable "engagement_office" {
-  type        = string
-  default     = "Melbourne"
+  type    = string
+  default = "Melbourne"
 }
 
 variable "contact_email" {
-  type        = string
-  default     = "theo.politis@slalom.com"
+  type    = string
+  default = "theo.politis@slalom.com"
 }
 
 variable "allowed_ip" {
@@ -69,13 +75,13 @@ variable "allowed_ip" {
 # Common tags to be assigned to all resources
 locals {
   common_tags = {
-    Name             = var.name
-    Manager          = var.manager
-    Market           = var.market
+    Name                = var.name
+    Manager             = var.manager
+    Market              = var.market
     "Engagement Office" = var.engagement_office
-    Email            = var.contact_email
-    Environment      = var.environment
-    Project          = var.project_name
-    ManagedBy        = "Terraform"
+    Email               = var.contact_email
+    Environment         = var.environment
+    Project             = var.project_name
+    ManagedBy           = "Terraform"
   }
 }

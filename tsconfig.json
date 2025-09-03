@@ -12,7 +12,7 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "types": ["node", "aws-lambda"]
+    "types": ["node", "aws-lambda", "jest"]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]

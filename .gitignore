@@ -1,0 +1,11 @@
+node_modules
+dist
+
+# Terraform files
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+terraform.tfvars
+
+function.zip
