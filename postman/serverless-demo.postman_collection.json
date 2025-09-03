@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "392ac418-e39d-4ec4-b772-77689a0d8f61",
+		"name": "serverless-demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "name",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Th\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_domain}}/{{api_stage}}/name",
+					"host": [
+						"{{api_domain}}"
+					],
+					"path": [
+						"{{api_stage}}",
+						"name"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_domain}}/{{api_stage}}/health",
+					"host": [
+						"{{api_domain}}"
+					],
+					"path": [
+						"{{api_stage}}",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "secrets-demo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_domain}}/{{api_stage}}/secrets-demo",
+					"host": [
+						"{{api_domain}}"
+					],
+					"path": [
+						"{{api_stage}}",
+						"secrets-demo"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "XuPAwKFTTAU35gwy0VEExX0hyleUmakm",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "x-api-key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_domain",
+			"value": "https://a2k0fg9wx7.execute-api.ap-southeast-2.amazonaws.com",
+			"type": "default"
+		},
+		{
+			"key": "api_stage",
+			"value": "dev",
+			"type": "default"
+		}
+	]
+}
